@@ -65,7 +65,7 @@ It could be idenfied from the manual verification of the Password Hashing Serve 
 2. Execute the curls mentioned against the respective test scenarios.
 3. Read and interpret the results accordingly.
 
-### Issues identified ###
+## Issues identified ##
 1. The ***job identifier*** is getting returned from the ***/hash POST call*** only after 5 seconds wait and the computing the hash time, even though it's expected immediately.
 2. Status code for the ***/hash POST call*** is 200 despite Content-Type header is being supplied as ***test/plain***, even though a ***415: Unsupported Media type*** response is expected.
 3. Response body text for the ***/hash GET call*** is not the Base64 encoded value of the password string after SHA-512 hashing, as expected.
