@@ -73,5 +73,7 @@ It could be idenfied from the manual verification of the Password Hashing Serve 
 5. The average response time value caculation in the ***/stats GET call*** response body is incorrect.
 
 ## References
+* __Postman Scripts:__ https://learning.postman.com/docs/postman/scripts/test-scripts/
+* __Cygwin installation:__ https://cygwin.com/install.html
 * __xargs:__  http://man7.org/linux/man-pages/man1/xargs.1.html
 * __cURL:__ https://curl.haxx.se/docs/manpage.html
