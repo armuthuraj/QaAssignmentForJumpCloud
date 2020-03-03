@@ -1,4 +1,4 @@
-# Quickstart to test the Password Hashing Serve #
+# Quickstart about the Password Hashing Serve testing #
 This document shall act as a quickstart guide to understand about testing which has been performed in the Password hashing service on the local server.
 
 ## Artifacts Uploaded ##
