@@ -1,0 +1,3 @@
+echo "Calling the /hash request before shutdown" && curl --location --request POST 'http://127.0.0.1:8088/hash' --header 'Content-Type: application/json' --header 'Accept: */*' --data-raw '{"password": "angrymonkey"}'
+echo "Shutdown call.. " && curl --location --request POST 'http://127.0.0.1:8088/hash' --header 'Content-Type: text/plain' --data-raw 'shutdown'
+echo "Calling the /hash request after shutdown " && curl --location --request POST 'http://127.0.0.1:8088/hash' --header 'Content-Type: application/json' --header 'Accept: */*' --data-raw '{"password": "angrymonkey2"}'
