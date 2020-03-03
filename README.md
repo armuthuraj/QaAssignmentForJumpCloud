@@ -30,17 +30,17 @@ Method name  | Method Type | Test Scenario | Reference | Test Result
 /stats | GET | Verify the response value of total hash requests since server started | Postman: hashStatistics/valiateHashingStatsEndpointFunctionality | <span style="color:green">*Pass*</span>
 /stats | GET | Verify the average response time for a hash request in milliseconds after including the hash calculation | Postman: hashStatistics/valiateHashingStatsEndpointFunctionality | <span style="color:red">*Fail*</span>
 /hash (shutdown) | POST | Verify if the software supports a graceful shutdown - status code is 200 | Postman: tearDown/validateShutdownEndpointResponseCode | <span style="color:green">*Pass*</span>
-/hash | POST | Verify if no additional password requests are allowed when the shutdown is pending | ``` cat validate-shutdown-functionality | while read n; do printf "%q\n" "$n"; done | xargs --max-procs=2 -I LC bash -c LC ``` | <span style="color:green">*Pass*</span>
+/hash | POST | Verify if no additional password requests are allowed when the shutdown is pending | ``` cat validate-shutdown-functionality &#124; while read n; do printf "%q\n" "$n"; done &#124; xargs --max-procs=2 -I LC bash -c LC ``` | <span style="color:green">*Pass*</span>
 
 ### Performance ###
-Performance testing was done manually using cURLs. The following are the scenario(s) tested.
+Performance impacts on the service during concurrency was tested manually using cURLs. The usage of jmeter or any other performace specific tools has not been considered at this time as we don't have specific performance requirements documented at this point of time. The following are the scenario(s) tested.
 
 Method name  | Method Type | Test Scenario | Reference | Test Result
 ------------- | ------------- | ------------- | ------------- | -------------
 /hash | POST | Validate if the software is able to process multiple connections simultaneously | ``` xargs --max-procs=3 -I curl --verbose 'http://127.0.0.1:8088/hash' --header 'Accept: */*' --header 'Content-Type: application/json' --data '{"password":"angrymonkey"}' < <(printf '%s\n' {1..3}) ``` | <span style="color:green">*Pass*</span>
 
 ### Security ###
-It could be idenfied from the manual verification of the Password Hashing Serve application is insecure as there is no authentication involved in accessing the service and hence a third party could easily snoop in to the application and manipulate the results.
+It could be idenfied from the manual verification of the Password Hashing Serve application that it is insecure currently as there is no authentication involved in accessing the service and hence a third party could easily snoop in to the application and manipulate the results.
 
 ### Issues Identified ###
 1. The ***job identifier*** is getting returned from the ***/hash POST call*** only after 5 seconds wait and the computing the hash time, even though it's expected immediately.
