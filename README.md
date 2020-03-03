@@ -30,7 +30,7 @@ Method name  | Method Type | Test Scenario | Reference | Test Result
 /stats | GET | Verify the response value of total hash requests since server started | Postman: hashStatistics/valiateHashingStatsEndpointFunctionality | <span style="color:green">*Pass*</span>
 /stats | GET | Verify the average response time for a hash request in milliseconds after including the hash calculation | Postman: hashStatistics/valiateHashingStatsEndpointFunctionality | <span style="color:red">*Fail*</span>
 /hash (shutdown) | POST | Verify if the software supports a graceful shutdown - status code is 200 | Postman: tearDown/validateShutdownEndpointResponseCode | <span style="color:green">*Pass*</span>
-/hash | POST | Verify if no additional password requests are allowed when the shutdown is pending | ``` cat validate-shutdown-functionality &#124; while read n; do printf "%q\n" "$n"; done &#124; xargs --max-procs=2 -I LC bash -c LC ``` | <span style="color:green">*Pass*</span>
+/hash | POST | Verify if no additional password requests are allowed when the shutdown is pending | <code>cat validate-shutdown-functionality &#124; while read n; do printf "%q\n" "$n"; done &#124; xargs --max-procs=2 -I LC bash -c LC</code> | <span style="color:green">*Pass*</span>
 
 ### Performance ###
 Performance impacts on the service during concurrency was tested manually using cURLs. The usage of jmeter or any other performace specific tools has not been considered at this time as we don't have specific performance requirements documented at this point of time. The following are the scenario(s) tested.
