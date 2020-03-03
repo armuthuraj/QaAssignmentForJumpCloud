@@ -3,7 +3,7 @@ This document shall act as a quickstart guide to understand about testing which 
 
 ## Artifacts Uploaded ##
 1. ***password-hash-app_postman_collection.json*** - The Postman collection created for functionally testing the application.
-2. ***QA Assignment*** - The project description and requirements document.
+2. ***QA Assignment.pdf*** - The project description and requirements document.
 3. ***validate-graceful-shutdown-functionality*** - A flat file which has the cURLs which will be getting executed in parallel by the xrags command.
 
 ## Host system specification ###
