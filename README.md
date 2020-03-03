@@ -34,7 +34,7 @@ Method name  | Method Type | Test Scenario | Reference | Test Result
 /hash | POST | Validate if the job identifier value is getting returned immediately | <code>curl 'http://127.0.0.1:8088/hash' --header 'Content-Type: application/json' --header 'Accept: */*' --data-raw '{"password": "angrymonkey"}' --compressed -s -o /dev/null -w  "\ntime_namelookup:  %{time_namelookup}\ntime_connect:  %{time_connect}\ntime_appconnect:  %{time_appconnect}\ntime_pretransfer:  %{time_pretransfer}\ntime_redirect:  %{time_redirect}\ntime_starttransfer:  %{time_starttransfer}\n__________\ntime_total:  %{time_total}\n"</code> | <span style="color:red">*Fail*</span>
 /hash | GET | Validate for successful response code | Postman: <code>retrievePasswordHash/validateHashedPasswordRetrievalEndpointFunctionality</code> | <span style="color:green">*Pass*</span>
 /hash | GET | Response time is less than 10ms | Postman: <code>retrievePasswordHash/validateHashedPasswordRetrievalEndpointFunctionality</code> | <span style="color:green">*Pass*</span>
-/hash | GET | Response body text is the Base64 encoded value of the password string after SHA-512 hashing | Postman: retrievePasswordHash/validateHashedPasswordRetrievalEndpointFunctionality | <span style="color:red">*Fail*</span>
+/hash | GET | Response body text is the Base64 encoded value of the password string after SHA-512 hashing | Postman: <code>retrievePasswordHash/validateHashedPasswordRetrievalEndpointFunctionality</code> | <span style="color:red">*Fail*</span>
 /stats | GET | Validate for successful response code | Postman: <code>hashStatistics/valiateHashingStatsEndpointFunctionality</code> | <span style="color:green">*Pass*</span>
 /stats | GET | Response time is less than 10ms | Postman: <code>hashStatistics/valiateHashingStatsEndpointFunctionality</code> | <span style="color:green">*Pass*</span>
 /stats | GET | Validate if the response Content-Type is of type JSON | Postman: <code>hashStatistics/valiateHashingStatsEndpointFunctionality</code> | <span style="color:red">*Fail*</span>
@@ -75,5 +75,5 @@ It could be idenfied from the manual verification of the Password Hashing Serve 
 ## References
 * __Postman Scripts:__ https://learning.postman.com/docs/postman/scripts/test-scripts/
 * __Cygwin installation:__ https://cygwin.com/install.html
-* __xargs:__  http://man7.org/linux/man-pages/man1/xargs.1.html
-* __cURL:__ https://curl.haxx.se/docs/manpage.html
+* __xargs documentation:__  http://man7.org/linux/man-pages/man1/xargs.1.html
+* __cURL documentation:__ https://curl.haxx.se/docs/manpage.html
